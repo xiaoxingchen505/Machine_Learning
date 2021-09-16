@@ -28,9 +28,9 @@ PCA的应用范围有：
 
 协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差，在下面公式中，可以计算出两个特征之间的值存在正相关或者负相关。
 
-![image](https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov1.png){:height="36px" width="36px"}.
+<img src="https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov1.png" width="100" height="100">
 
-![image](https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov2.png){:height="36px" width="36px"}.
+<img src="https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov2.png" width="100" height="100">
 
 ## PCA的计算过程
 
