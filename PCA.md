@@ -23,6 +23,27 @@ PCA的应用范围有：
 
     * 在很多情况下， 可能我们需要查看样本特征， 但是高维度的特征根本无法观察， 这个时候我们可以将样本的特征降维到2D或者3D， 也就是将样本的特征维数降到2个特征或者3个特征， 这样我们就可以采用可视化观察数据。
 
+## 协方差
+
+
+协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差，在下面公式中，可以计算出两个特征之间的值存在正相关或者负相关。
+
+![image](https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov1.png)
+
+![image](https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/cov2.png)
 
 ## PCA的计算过程
 
+* 首先要对训练样本的特征进行归一化
+
+```python
+from sklean.preprocessing import StandardScaler
+X_std = StandardScaler().fit_transform(X) # 假设X是我们的输入
+```
+
+* 计算协方差矩阵
+
+```python
+mean_vec = np.mean(X_std, axis=0)
+cov_mat = (X_std - mean_vec).T.dot((X_std - mean_vec))/(X_std.shape[0]-1)
+```
