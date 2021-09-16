@@ -57,7 +57,7 @@ eig_vals, eig_vecs = np.linalg.eig(cov_mat)
 #eig_vals是特征值，eig_vecs是特征向量，其中特征值跟特征向量是一一对应的，特征值代表其对应特征向量的重要程度
 ```
 
-* 可视化特征值的重要性
+* 可视化特征值
 ```python
 
 # make a list of (eigenvalue, eigenvector) tuples
