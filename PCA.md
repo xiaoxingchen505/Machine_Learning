@@ -46,4 +46,51 @@ X_std = StandardScaler().fit_transform(X) # 假设X是我们的输入
 ```python
 mean_vec = np.mean(X_std, axis=0)
 cov_mat = (X_std - mean_vec).T.dot((X_std - mean_vec))/(X_std.shape[0]-1)
+
+#或者可以直接使用numpy自带的函数
+cov_mat = np.cov(X_std.T)
+```
+
+* 计算特征值和特征向量
+```python
+eig_vals, eig_vecs = np.linalg.eig(cov_mat)
+#eig_vals是特征值，eig_vecs是特征向量，其中特征值跟特征向量是一一对应的，特征值代表其对应特征向量的重要程度
+```
+
+* 可视化特征值的重要性
+```python
+
+# make a list of (eigenvalue, eigenvector) tuples
+eig_pairs = [(np.abs(eig_vals[i]),eig_vecs[:,i]) for i in range(len(eig_vals))]
+
+# sort the pairs from high to low
+eig_pairs.sort(key = lambda x: x[0], reverse = True)
+
+# 归一化到0~100，让结果看起来更直观
+tot = sum(eig_vals)
+var_exp = [(i/tot)*100 for i in sorted(eig_vals, reverse=True)]
+
+# cumulative explained variance (可视化相关，可以忽略)
+cum_var_exp = np.cumsum(var_exp)
+
+# 开始作图
+plt.figure = (figsize=(6,4))
+plt.bar(range(4), var_exp, alpha= 0.5, align= 'center', label = 'indiviual explained variance')
+plt.step(range(4),cum_var_exp, where='mid', label = 'cumulative explained variance')
+plt.ylabel('Explained variance ratio')
+plt.xlabel('Principal components')
+plt.legend(loc='best')
+plt.tight_layout()
+plt.show()
+```
+
+* 找到我们需要的4 x 2矩阵
+```python
+matrix_w = np.hstack((eig_pairs[0][1].reshape(4,1)),
+                    (eig_pairs[1][1].reshape(4,1)))
+```
+
+* 输出最后的降维后的结果
+```python
+Y = X_std.dot(matrix_w)
 ```
