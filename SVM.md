@@ -7,10 +7,12 @@
 ## 有关于向量内积 Refresh
 <img src="https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/svm2.png" width="600" height="300">
 
-## SVM的原理
+## SVM的推导相关
 <img src="https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/svm3.png" width="600" height="300">
 
+<img src="https://github.com/xiaoxingchen505/Machine_Learning/blob/main/images/svm4.png" width="600" height="300">
 
+这个公式左边是
 ## 公式
 
 
